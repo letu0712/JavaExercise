@@ -22,7 +22,7 @@ public class CheckFormat {
 	}
 	
 	public static boolean checkPhone(String phone) {
-		String regex = "^0[789]{1}\\d{8}$";
+		String regex = "^((090)|(098)|(091)|(031)|(035)|(038)){1}\\d{7}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(phone);
 		if(matcher.find()) {

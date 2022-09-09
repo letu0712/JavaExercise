@@ -31,11 +31,9 @@ public class EmployeeManager {
 	
 	//Modify Employee
 	public void modifyEmployee(int id, Employee newEmployee) {
-		for(Employee employee: this.listEmployee) {
-			if(employee.getId() == id) {
-				employee = newEmployee;
-			}
-		}
+		this.listEmployee.removeIf(employee -> employee.getId() == id);
+		newEmployee.setId(id);
+		this.listEmployee.add(newEmployee);
 	}
 	
 	//Delete Employee

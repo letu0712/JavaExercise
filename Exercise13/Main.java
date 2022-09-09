@@ -23,13 +23,15 @@ public class Main {
 			String name = scan.nextLine();
 			System.out.print("Rank: ");
 			int rank = scan.nextInt();
-			System.out.print("Date: ");
+			
 			scan.nextLine();
-			String date = scan.nextLine();
-			try {
-				CustomException.validateBirthday(date);
-			}catch(Exception ex) {
-				System.out.println(ex);
+			String date;
+			while(true) {
+				System.out.print("Date: ");
+				date = scan.nextLine();
+				if(CustomException.validateBirthday(date)) {
+					break;
+				}
 			}
 			listCertificate.add(new Certificate(id, name, rank, date));
 		}
@@ -42,26 +44,37 @@ public class Main {
 		System.out.print("Full Name: ");
 //		scan.nextLine();
 		String fullName = scan.nextLine();
-		System.out.print("Birthday: ");
-		String birthDay = scan.nextLine();
-		try {
-			CustomException.validateBirthday(birthDay);
-		}catch(Exception ex) {
-			System.out.println(ex);
+		
+		String birthDay;
+		while(true) {
+			System.out.print("Birthday: ");
+			birthDay = scan.nextLine();
+			if(CustomException.validateBirthday(birthDay)) {
+				break;
+			}
 		}
-		System.out.print("Phone: ");
-		String phone = scan.nextLine();
-		try {
-			CustomException.validatePhone(phone);
-		}catch(Exception ex) {
-			System.out.println(ex);
+		String phone;
+		while(true) {
+			System.out.print("Phone: ");
+			phone = scan.nextLine();
+			try {
+				CustomException.validatePhone(phone);
+				break;
+			}catch(Exception ex) {
+				System.out.println(ex);
+			}
 		}
-		System.out.print("Email: ");
-		String email = scan.nextLine();
-		try {
-			CustomException.validateEmail(email);
-		}catch(Exception ex) {
-			System.out.println(ex);
+
+		String email;
+		while(true) {
+			System.out.print("Email: ");
+			email = scan.nextLine();
+			try {
+				CustomException.validateEmail(email);
+				break;
+			}catch(Exception ex) {
+				System.out.println(ex);
+			}
 		}
 		System.out.print("Employee Type (0: Experience, 1: Fresher, 2: Intern): ");
 		int employeeType = scan.nextInt();
@@ -93,13 +106,17 @@ public class Main {
 			//Fresher(String fullName, String birthDay, String phone, String email, int employeeType,
 	//		List<Certificate> listCertificate, Date graduationDate, String graduationRank, String education)
 			case 1:{
-				System.out.print("Graduation Date: ");
-				String graduationDate = scan.nextLine();
-				try {
-					CustomException.validateBirthday(graduationDate);
-				}catch(Exception ex) {
-					System.out.println(ex);
+				scan.nextLine();
+				String graduationDate;
+				while(true) {
+					System.out.print("Graduation Date: ");
+					graduationDate = scan.nextLine();
+					if(CustomException.validateBirthday(graduationDate)) {
+						break;
+					}
+
 				}
+
 				System.out.print("Graduation Rank: "); 	//Tot nghiep loai gi
 				String graduationRank = scan.nextLine();
 				System.out.print("Education: ");			//Truong dai hoc 
